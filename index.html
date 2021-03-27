@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Angličtina</title>
+
+
+
+    
+    <script>
+        window.onload = document.getElementById("questions").classList.toggle("hidden");
+
+        function start() {
+            document.getElementById("questions").classList.toggle("hidden");
+            document.getElementById("startbtn").classList.toggle("hidden");
+            document.getElementById("titletext").classList.toggle("hidden");
+        }
+        
+        function correct () {
+            document.getElementById("body").classList.toggle("correct")
+            setTimeout(() => {
+                document.getElementById("body").classList.toggle("correct")
+            }, 500);
+            document.getElementById("question").remove();
+            var score = document.getElementById("score").innerHTML;
+            score++;
+            document.getElementById("score").innerHTML = score;
+        }
+        
+        
+        function incorrect () {
+            document.getElementById("body").classList.toggle("incorrect")
+            setTimeout(() => {
+                document.getElementById("body").classList.toggle("incorrect")   
+            }, 500);
+            document.getElementById("question").remove();
+        }
+        
+        function dokoncen () {
+            document.getElementById("konec1").classList.toggle("hidden")
+            document.getElementById("konec2").classList.toggle("hidden")
+            document.getElementById("konec3").classList.toggle("hidden")
+        }
+    </script>    
+
+    <style> p {
+        color:rgb(255, 255, 255); font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; font-size: 30px;
+    }
+
+
+
+    .hidden {
+        display: none;
+    }
+
+    .correct {
+        animation: correct 1s
+    }
+
+    .incorrect {
+        animation: incorrect 1s
+    }
+
+    .answer-button {
+        width: 100px;
+        height: 60px;
+        border:0 none;
+        cursor:pointer;
+        outline:none;
+    }
+
+    .answer-button:hover {
+        animation-name: btn-hover;
+        animation-duration: .6s;
+        animation-fill-mode: forwards;
+    }
+
+
+    .end {
+        font-weight: bold;
+    }
+
+    @keyframes btn-hover {
+        0% {border-radius: 0px}
+        100% {border-radius: 10px; background-color: rgb(191, 191, 191);}
+
+    }
+
+    @keyframes correct {
+        0% {background-color: green;}
+        100% {background-color: rgb(31,31,31)}
+    }
+
+
+    @keyframes incorrect {
+        0% {background-color: rgb(255, 0, 0);}
+        100% {background-color: rgb(31,31,31)}
+    }
+    </style>
+</head>
+<body id="body" style="background-color: rgb(31,31,31)">
+    <center>
+        <p id="konec1"; class="hidden end"; style = "font-size: 80px; font-weight: bold;";>KVÍZ DOKONČEN</p>
+        <p id="konec2"; class="hidden end"; style = "font-size: 80px; font-weight: bold;";>SKÓRE: <span id="score">0</span>/10</p>
+        <div id="titletext">
+            <p style="font-size: 80px">Frekvenční příslovce</p>
+            <p style="font-size: 50px;">Barva pozadí vám ukáže jestli byla otázka zodpovězena správně či špatně.</p>
+
+            <b><p style="font-size:50px; color:red">POZOR, JE DŮLEŽITÉ ABY JSTE ODPOVÍDALI NA OTÁZKY V POŘADÍ JINAK SE NEVYHODNOTÍ SPRÁVNĚ</p></b>
+        </div>
+
+        <button style="width:400px; height: 160px; background: url(https://www.autosamolepky.cz/site/autosamolepky.cz/attachments/products/thumb/294/294/1bb000000/samolepka-na-auto_vlajka-velka-britanie-5968.png) no-repeat; background-position: center; background-size: cover; color: rgb(0, 0, 0); font-size: 50px;font-weight: bold; border-radius: 40px"  id="startbtn" onclick="start()">START</button>
+        <div id="questions" class="hidden">
+            <div class = "question" id="question">
+                <p>How often do you go to school? <br>I _____ go to school</p>
+                <button class="answer-button" onclick="correct(); ">Often</button>
+                <button class="answer-button"  onclick="incorrect()">Rarely</button>
+                <button class="answer-button" onclick="incorrect();">Never</button>
+            </div>
+
+            <div class = "question" id="question">
+                <p>How often does it rain in Africa? <br> It _____ rains in Africa</p>
+                <button class="answer-button" onclick="correct(); ">Rarely</button>
+                <button class="answer-button" onclick="incorrect()">Always</button>
+                <button class="answer-button"  onclick="incorrect()">Every day</button>
+            </div>
+
+            
+            <div class = "question" id="question">
+                <p>How often do you have dinner? <br> I _____ have dinner.</p>
+                <button class="answer-button" onclick="correct(); ">Always</button>
+                <button class="answer-button" onclick="incorrect()">Rarely</button>
+                <button class="answer-button"  onclick="incorrect()">Never</button>
+            </div>
+
+            <div class = "question" id="question">
+                <p>How often is it the weekend? <br> The weekend is ________.</p>
+                <button class="answer-button"  onclick="correct(); ">Every week</button>
+                <button class="answer-button" onclick="incorrect()">Never</button>
+                <button class="answer-button" onclick="correct()">Always</button>
+            </div>
+
+
+            <div class = "question" id="question">
+                <p>How often do you go to sleep? <br> I go to sleep _______.</p>
+                <button class="answer-button" onclick="incorrect()">Never</button>
+                <button class="answer-button" onclick="correct(); ">Every day</button>
+                <button class="answer-button"  onclick="incorrect()">Rarely</button>
+            </div>
+
+            <div class = "question" id="question">
+                <p>How often does it rain in the summer? <br> It ______ rains in the summer.</p>
+                <button class="answer-button"  onclick="correct()">Rarely</button>
+                <button class="answer-button" onclick="incorrect()">Never</button>
+                <button class="answer-button" onclick="incorrect();">Every day</button>
+            </div>
+
+            <div class = "question" id="question">
+                <p>How often is it Christmas? <br> Christmas is ____________.</p>
+                <button class="answer-button" onclick="incorrect()">Often</button>
+                <button class="answer-button" onclick="correct();">Every year</button>
+                <button class="answer-button"  onclick="incorrect()">Never</button>
+            </div>
+
+            <div class = "question" id="question">
+                <p>How often do you have English class? <br> I ________ have English class.</p>
+                <button class="answer-button" onclick="incorrect();">Always</button>
+                <button class="answer-button"  onclick="incorrect()">Never</button>
+                <button class="answer-button" onclick="correct()">Often</button>
+            </div>
+
+            <div class = "question" id="question">
+                <p>How often does it snow in the winter? <br> In the winter it ________ snows.</p>
+                <button class="answer-button" onclick="correct()">Often</button>
+                <button class="answer-button" onclick="incorrect();">Every day</button>
+                <button class="answer-button"  onclick="incorrect()">Rarely</button>
+            </div>
+
+            <div class = "question" id="question">
+                <p>How often do you breathe? <br> I _______ breathe. (dýchat)</p>
+                <button class="answer-button" onclick="incorrect();  ">Never</button>
+                <button class="answer-button" onclick="correct();  ">Always</button>
+                <button class="answer-button" onclick="incorrect();  ">Often</button>
+                </div>
+
+                <button id="konec3"; style="width: 200px; height: 120px; border:0 none; cursor:pointer; outline:none; margin-top:15px; background-color: rgb(0, 255, 0); border-radius:20px"; onclick="dokoncen()">VYHODNOTIT</button>
+        </div>
+    
+</center>
+</body>
+</html>
